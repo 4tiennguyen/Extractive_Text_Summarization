@@ -7,26 +7,26 @@ The BBC News dataset, originating from the BBC's website, provides news article 
 Extractive text summarization is a technique in natural language processing (NLP) and information retrieval. It automatically selects and extracts the most important sentences or phrases from a given document or text to create a concise summary. The technique doesn't generate new sentences or content. Instead, it extracts and rearranges existing content to form a summary that retains the essential information from the original text.
 ### 2. What is Fuzzy Logic?
 The sentence ranking stage in text summarization has improved over time by taking into account more features. For instance, within a paragraph, we consider the characteristics of each sentence, such as its location, length, similarity to other sentences, any numerical data, and so on as features. With fuzzy logic, we can assign weights, provide membership functions to each feature, and then calculate total scores for each sentence. We then choose the sentences with the highest scores to include in the summary of the paragraph.  
-a. Title feature (F1)  
+#### a. Title feature (F1)  
 It is defined as a ratio of the number of matches of the Title words (Tw) in the current sentence (S) to the number of words (w) of the Title (T)     
 <img alt="F1" src="https://drive.google.com/uc?export=view&id=1J1GGrkuGcHhPlGRIo7xmPlwHLe0I2LcV">  
-b. Sentence Length (F2)  
+#### b. Sentence Length (F2)  
 It is defined as a ratio of the number of words (w) in the current sentence (S) to the number of words in the longest sentence (LS) in the text.     
 <img alt="F2" src="https://drive.google.com/uc?export=view&id=1b42IWpr5svaCyQl6fdnGNWaLP3Rv4bgK">  
-c. Sentence position (F3)  
+#### c. Sentence position (F3)  
 It is defined as a maximum of the next two relations      
 <img alt="F3" src="https://drive.google.com/uc?export=view&id=1WNqhFyRSkFR7RaGqtZaywOmQVBrUJyb0">  
-d.Term Weight (F4)  
+#### d.Term Weight (F4)  
 It is defined as a ratio of the sum of the frequencies of term occurrences (TO) in a sentence (S) to the sum of the frequency of term occurrences in the text.     
 <img alt="F4" src="https://drive.google.com/uc?export=view&id=1wS8NV1otHFjgu4NePxkyPwQXFpZ4f93q">  
-e. Proper Noun (F5)     
+#### e. Proper Noun (F5)     
 It is defined as a ratio of the number of proper nouns (PN) in a sentence (S) to the length (L) of a sentence  
 <img alt="F6" src="https://drive.google.com/uc?export=view&id=1MEBknA87K-vPSlu061F-hOz_c9aHrl6W">  
-f. Numerical Data (F6)  
+#### f. Numerical Data (F6)  
  It is defined as a ratio of the number of numerical data (ND) in the sentence (S) to the length (L) of the sentence     
 <img alt="F6" src="https://drive.google.com/uc?export=view&id=1MEBknA87K-vPSlu061F-hOz_c9aHrl6W">
 ### 3. Project milestones
-##### a. Milestone 1: Combining feature vectors to decide which are representative statements  
+#### a. Milestone 1: Combining feature vectors to decide which are representative statements  
 We propose a formula that combines the F scores for any given sentence.   
-##### b. Milestone 2
-We implemented NN to find the optimal weight for each feature in milestome 1
+#### b. Milestone 2
+We implemented NN to find the optimal weight for each feature in milestone 1
