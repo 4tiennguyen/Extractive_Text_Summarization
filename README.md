@@ -97,6 +97,20 @@ Here is a comparison of the confusion matrices for predicted test data after tra
 ![image](https://github.com/4tiennguyen/Extractive_Text_Summarization/assets/34051678/8c50c7e1-8fe6-4502-aa76-b968d3c64840)  
 Here is a comparison of the weight convergence graphs for all models. All the graphs estimate weight 2 corresponding to function 2 (sentence length) to have a high impact when predicting a sentence's importance. Loss and F1 models are similarly shaped and predict weight 2 as the most important but the loss model also predicts weight 5 (corresponding to function 5 proper nouns) to be important. Recall model was completely different from all other models it only predicted weight 1 (corresponding to function 1 title words) and weight 2 to be important. The graphs on the bottom depicting the accuracy, precision, and baseline models all agree that weight 5 and weight 2 are the most important followed by weight 1.  
 ### f. Best weights
+From our neural network, the only important functions in order of importance are:
+1. Function 2 (score is based on sentence length)  
+2. Function 5 (score is based on the occurrence of proper nouns)  
+3. Function 1 (score is based on the number of title words in the sentence)  
+We compared this with our original estimated weights we had thought the presence of title words would be the most important followed by proper nouns so we had failed to predict the importance of a sentences length.  
+Intuitive estimated weights: 20*F1 + 10*F2 + 10*F3 + 10*F4 + 15*F5 + 5*F6.
+# Conclustion
+Our best models were the recall model and the baseline model. Recall model would be the best if it is more important not to miss any summary sentences. Since it has more true positives
+The baseline model is the best if you need to find an important sentence but are worried about over-predicting and ending up with a summary that is too long. The accuracy model is also very similar to our baseline model but is significantly simpler so it could also be considered one of our best models.  
+Training metrics are very high (accuracy in the 90%), but testing data remains low around 60% so we might still be overfitting. Testing loss also increases slightly as training goes on, but the weights do seem to converge. Regardless of what we do the training metrics do not change too much except recall will go from around 60% to 80%. We tried a very high number of neurons in each layer at first but through testing found a lower number (>100) would give us similar results and have a faster runtime.
+
+
+
+
 
 
 
