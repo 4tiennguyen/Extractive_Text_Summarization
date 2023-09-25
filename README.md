@@ -53,5 +53,16 @@ F5(Sentence) = (number of proper nouns in the sentence) / (total number of words
 F6(Sentence) = (number of numerical terms in the sentence) / (total number of words in the sentence)  
 ## C. F Score
 Keeping the goal in mind to determine a sentence's overall importance,  we wanted to use the functions described by combining them with a weight and summing them together to get a final F score that we will use to determine if a sentence is important or not. We also divide by the sum of all our weights to keep the F score between 0 and 1. This means we also have a sub goal of determining which functions will be the most useful to predict a sentence's importance.  
-F score = (W1×F1+W2×F2+W3×F3+W4×F4+W5×F5+W6×F6) / (W1+W2+W3+W4+W5+W6)  
+**F score = (W1×F1+W2×F2+W3×F3+W4×F4+W5×F5+W6×F6) / (W1+W2+W3+W4+W5+W6)**  
 Originally we had an intuitive guess that function 1 - title function would be the most important, then function 5 - the proper noun function, followed by functions 2, 3, and 4 having neutral importance and function 6 with the least importance.  
+# Milestone 2
+## A. Structure of our Baseline Neural Network
+![image](https://github.com/4tiennguyen/Extractive_Text_Summarization/assets/34051678/e8e7ed63-b633-4954-9124-6693d975d677)  
+To find what weights we should use for each function we used a neural network whose outputs are the 6 function weights. A sentence is first processed outside of our model and tokenized, then the tokens become the input for our neural network. This configuration is the baseline model that we found through trial and error testing. We have three hidden layers in our neural network, with 500, 300, and 200 neurons in each layer respectively. All the hidden layers have relu activation. The output layer of our model has 6 neurons and uses softmax activation each output is used as a weight for the function score in our custom loss. Function scores are passed through Y when we fit the model as a numpy array where the first column of Y is our targets, and the preceding columns are all the individual function scores so that we can access them when we define our custom loss.  
+## B. Target Dataframe
+![image](https://github.com/4tiennguyen/Extractive_Text_Summarization/assets/34051678/8cdbace7-7f3f-4a03-8176-40ba485237ed)  
+This is our target dataframe. One column has our actual targets and all the other columns correspond to our pre-calcuated F scores. We had to pass these through the neural network in Python as our target data frame so that we could access the scores while inside the neural network.  
+Originally we tried saving them as a list and multiplying the list within the network but we quickly realized because samples pass through at random and we use stochastic gradient descent we have mini batches all with different samples we couldn’t find a way to match the right scores with the right weights without passing the scores through the neural network somehow.
+
+
+
