@@ -80,7 +80,7 @@ After building a baseline model, we also implemented a Grid search with hyperpar
 The table below shows the results of what we deemed to be our top 5 combinations. They were chosen as the five best because we picked a model with the lowest loss, highest accuracy, highest precision, highest recall, and highest F1 score. It seemed the most common choice from our top models in each combination was relu6, 50 or 20 neurons, 0.001 learning rate, and 800 batch size. We were surprised the batch size was so high because our early testing seemed to favor smaller batch sizes.
 ![image](https://github.com/4tiennguyen/Extractive_Text_Summarization/assets/34051678/caca278a-61e4-4cf9-bd4f-74abba4784a8)  
 ## F. Results
-#### a. Top 5 Models Validation and Test Loss
+### a. Top 5 Models Validation and Test Loss
 ![image](https://github.com/4tiennguyen/Extractive_Text_Summarization/assets/34051678/d2a41e0b-b0f8-492c-9968-67affcbb2142)  
 Here is a comparison of validation and test loss through training for 5 models with parameters from the grid search and our baseline model. It seems there are two groups Recall and F1 models that have similar shaped loss graphs and look different to all the other models. These graphs are the only ones that have validation loss decreasing at all, but then we noticed that the test loss converges to around 0.25 for every model except for the recall model which converges to a little over 0.22. so the loss and F1 model just start with higher loss which is why those are the only models that have decreasing test loss. These graphs also converge the slowest in terms of reducing the training loss with all of our graphs it seems that the longer we train the higher our testing loss goes.
 ### b. Top 5 Models Metrics (re-run)
@@ -96,6 +96,8 @@ Here is a comparison of the confusion matrices for predicted test data after tra
 ### e. Top 5 Models Weight Convergence
 ![image](https://github.com/4tiennguyen/Extractive_Text_Summarization/assets/34051678/8c50c7e1-8fe6-4502-aa76-b968d3c64840)  
 Here is a comparison of the weight convergence graphs for all models. All the graphs estimate weight 2 corresponding to function 2 (sentence length) to have a high impact when predicting a sentence's importance. Loss and F1 models are similarly shaped and predict weight 2 as the most important but the loss model also predicts weight 5 (corresponding to function 5 proper nouns) to be important. Recall model was completely different from all other models it only predicted weight 1 (corresponding to function 1 title words) and weight 2 to be important. The graphs on the bottom depicting the accuracy, precision, and baseline models all agree that weight 5 and weight 2 are the most important followed by weight 1.  
+### f. Best weights
+
 
 
 
