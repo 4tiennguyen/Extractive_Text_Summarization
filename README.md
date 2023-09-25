@@ -31,19 +31,23 @@ Split the data with an 80/20 ratio. The first 20% of the articles (1 - 83) as th
 It is defined as a ratio of the number of matches of the Title words (Tw) in the current sentence (S) to the number of words (w) of the Title (T)      
 F1(Sentence, article title) = (number of title words in the sentence) / (total number of words in the sentence)
 
+Above is an article where each sentence has an individual F1 score. The highest score is red and the lowest score is green. The first sentence has a high score for the article titled ‘labor plans maternity pay rise’ because it contains the words ‘maternity’ ‘pay’ and ‘rise’. The sentences with 0 have no title words.
 #### b. Sentence Length (F2)  
-It is defined as a ratio of the number of words (w) in the current sentence (S) to the number of words in the longest sentence (LS) in the text.     
-<img alt="F2" src="https://drive.google.com/uc?export=view&id=1b42IWpr5svaCyQl6fdnGNWaLP3Rv4bgK">  
+It is defined as a ratio of the number of words (w) in the current sentence (S) to the number of words in the longest sentence (LS) in the text.    
+F2(Sentence, article) = (total number of words in the sentence) / (total number of words in the longest sentence)  
+
 #### c. Sentence position (F3)  
-It is defined as a maximum of the next two relations      
-<img alt="F3" src="https://drive.google.com/uc?export=view&id=1WNqhFyRSkFR7RaGqtZaywOmQVBrUJyb0">  
+Measure the position of the sentence within the article  
+F3(Sentence, article) = MAX[ (1 / (position of sentence)), ( 1 / ((number of sentences in the article) - (position of sentence) + 1) ]  
+
+
 #### d.Term Weight (F4)  
-It is defined as a ratio of the sum of the frequencies of term occurrences (TO) in a sentence (S) to the sum of the frequency of term occurrences in the text.     
-<img alt="F4" src="https://drive.google.com/uc?export=view&id=1wS8NV1otHFjgu4NePxkyPwQXFpZ4f93q">  
+It is defined as a ratio of the sum of the frequencies of term occurrences (TO) in a sentence (S) to the sum of the frequency of term occurrences in the text.
+F4(Sentence, article) = Σ (term occurrences in the sentence) / Σ (term occurrences in the article)  
+
 #### e. Proper Noun (F5)     
 It is defined as a ratio of the number of proper nouns (PN) in a sentence (S) to the length (L) of a sentence  
-<img alt="F6" src="https://drive.google.com/uc?export=view&id=1MEBknA87K-vPSlu061F-hOz_c9aHrl6W">  
+F5(Sentence) = (number of proper nouns in the sentence) / (total number of words in the sentence)
 #### f. Numerical Data (F6)  
  It is defined as a ratio of the number of numerical data (ND) in the sentence (S) to the length (L) of the sentence     
-<img alt="F6" src="https://drive.google.com/uc?export=view&id=1MEBknA87K-vPSlu061F-hOz_c9aHrl6W">
-
+F6(Sentence) = (number of numerical terms in the sentence) / (total number of words in the sentence)  
