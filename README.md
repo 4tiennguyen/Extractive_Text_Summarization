@@ -87,6 +87,23 @@ Here is a comparison of validation and test loss through training for 5 models w
 ![image](https://github.com/4tiennguyen/Extractive_Text_Summarization/assets/34051678/59589cae-d81c-468d-8ed5-22fbe8f74ac0)  
 Here is a comparison of the metrics on the test data after training for the 5 grid search models and our baseline model. We had to re-run each neural network configuration outside of grid search so we could save the predictions and graphs, but this means that the metrics we are seeing here are not the same as what we saw when we did a grid search. The recall model has the lowest loss, highest recall, and F1 score.
 The baseline model has the highest precision and accuracy.
+### c. Top 5 Models Metrics Compared to Average
+![image](https://github.com/4tiennguyen/Extractive_Text_Summarization/assets/34051678/2d7f10d1-0dcf-4129-b80a-42b76d29af35)  
+we wanted to show each model's metrics compared to the average of the 6 models for each metric. So for example we found the average accuracy across all 6 models then we subtracted it from each model's accuracy if we look under the loss model has 1.83% less accuracy than the average so that's how we can interpret these numbers. Everything green is above average and everything orange is below.
+### d. Top 5 Models Confusion matrix
+![image](https://github.com/4tiennguyen/Extractive_Text_Summarization/assets/34051678/e2e11f2a-5bd2-436f-8fdd-d230302edd40)  
+Here is a comparison of the confusion matrices for predicted test data after training each model. We thought that the accuracy model and baseline model seemed the most reasonable. They both can reasonably predict a sentence as important without predicting too many unimportant sentences as important. Both models were also the most successful at predicting when a sentence wasn’t important out of all the unimportant sentences. The recall model had good metrics as seen previously, but seemed to predict too many sentences as important which means it was really good at finding important sentences but not so good at predicting when a sentence wouldn’t be important.  
+### e. Top 5 Models Weight Convergence
+![image](https://github.com/4tiennguyen/Extractive_Text_Summarization/assets/34051678/8c50c7e1-8fe6-4502-aa76-b968d3c64840)  
+Here is a comparison of the weight convergence graphs for all models. All the graphs estimate weight 2 corresponding to function 2 (sentence length) to have a high impact when predicting a sentence's importance. Loss and F1 models are similarly shaped and predict weight 2 as the most important but the loss model also predicts weight 5 (corresponding to function 5 proper nouns) to be important. Recall model was completely different from all other models it only predicted weight 1 (corresponding to function 1 title words) and weight 2 to be important. The graphs on the bottom depicting the accuracy, precision, and baseline models all agree that weight 5 and weight 2 are the most important followed by weight 1.  
+
+
+
+
+
+
+
+
 
 
 
