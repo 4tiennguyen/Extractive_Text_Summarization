@@ -14,7 +14,7 @@ We propose a formula that combines the F scores for any given sentence.
 We implemented NN to find the optimal weight for each feature in milestone 1
 
 # Milestone 1
-# Data Preparation
+## A. Data Preparation
 ### 1. Sentence separation:
 * Separate title sentence of documents by’\n\n’
 * Removed punctuations and newlines (such as “,\n) other than period, question mark and exclamation mark that sometimes cause sentence separation issues
@@ -26,7 +26,7 @@ We tried both stemming and lemmatization on our data set, stemming removes the l
 
 ### 3. Test/Train Data split
 Split the data with an 80/20 ratio. The first 20% of the articles (1 - 83) as the Testing data and the last 80% of the articles as the Training data (84 - 417)
-### 4. Function Score
+## B. Function Score
 #### a. Title feature (F1)  
 It is defined as a ratio of the number of matches of the Title words (Tw) in the current sentence (S) to the number of words (w) of the Title (T)      
 F1(Sentence, article title) = (number of title words in the sentence) / (total number of words in the sentence)
@@ -51,3 +51,7 @@ F5(Sentence) = (number of proper nouns in the sentence) / (total number of words
 #### f. Numerical Data (F6)  
  It is defined as a ratio of the number of numerical data (ND) in the sentence (S) to the length (L) of the sentence     
 F6(Sentence) = (number of numerical terms in the sentence) / (total number of words in the sentence)  
+## C. F Score
+Keeping the goal in mind to determine a sentence's overall importance,  we wanted to use the functions described by combining them with a weight and summing them together to get a final F score that we will use to determine if a sentence is important or not. We also divide by the sum of all our weights to keep the F score between 0 and 1. This means we also have a sub goal of determining which functions will be the most useful to predict a sentence's importance.  
+F score = (W1×F1+W2×F2+W3×F3+W4×F4+W5×F5+W6×F6) / (W1+W2+W3+W4+W5+W6)  
+Originally we had an intuitive guess that function 1 - title function would be the most important, then function 5 - the proper noun function, followed by functions 2, 3, and 4 having neutral importance and function 6 with the least importance.  
